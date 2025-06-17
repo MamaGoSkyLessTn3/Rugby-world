@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css" />
+		<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+		<script>
+			tailwind.config = {
+				theme: {
+					screens: {
+						sm: '640px',
+						md: '768px',
+						lg: '1024px',
+						xl: '1280px',
+						'2xl': '1536px',
+					},
+				},
+			}
+		</script>
+
+		<title>Мир Регби</title>
+	</head>
+	<body>
+		<style>
+			@keyframes dropFromTop {
+				0% {
+					transform: translateY(-1.5rem);
+					opacity: 0;
+				}
+				80% {
+					transform: translateY(0.2rem); /* Мини-отскок */
+				}
+				100% {
+					transform: translateY(0);
+					opacity: 1;
+				}
+			}
+			.animate-drop-from-top {
+				animation: dropFromTop 1s cubic-bezier(0.18, 0.89, 0.32, 1.28) forwards;
+			}
+			.fade-in {
+				animation: fadeIn 1s ease-out forwards;
+				opacity: 0;
+			}
+
+			@keyframes fadeIn {
+				to {
+					opacity: 1;
+				}
+			}
+
+			.floating-icon {
+				animation: float 3s ease-in-out infinite;
+			}
+			@keyframes float {
+				0%,
+				100% {
+					transform: translateY(0);
+				}
+				50% {
+					transform: translateY(-20px);
+				}
+			}
+			@media (max-width: 1000px) {
+				.copy-container h1 {
+					font-size: 2.5rem;
+					width: 90%;
+				}
+
+				.hero .copy-container h1 {
+					font-size: 2rem;
+				}
+
+				.about .text-5xl,
+				.about .text-6xl {
+					font-size: 2.5rem;
+					text-align: center;
+				}
+
+				.anime-text p {
+					font-size: 1.25rem;
+				}
+
+				.map-wrapper {
+					width: 100% !important;
+					height: 300px;
+					margin-bottom: 2rem;
+				}
+
+				.maps-container {
+					flex-direction: column;
+				}
+
+				.features .text-6xl {
+					position: static;
+					margin-bottom: 2rem;
+					text-align: center;
+				}
+
+				/* Секция ассортимента */
+				.about .grid-cols-2 {
+					grid-template-columns: 1fr;
+				}
+
+				.about .grid.grid-cols-2.gap-10.px-10 > div:first-child {
+					margin-bottom: 2rem;
+				}
+
+				.about .grid.grid-cols-2.gap-4 > div {
+					width: 100%;
+					max-width: 300px;
+					margin: 0 auto 1rem;
+				}
+
+				/* Форма обратной связи */
+				.about .grid-cols-1.md\:grid-cols-2 {
+					grid-template-columns: 1fr;
+				}
+
+				.about .bg-gray-800\/30 {
+					padding: 1.5rem;
+				}
+
+				/* Ссылка на политику */
+				section.about > div:last-child {
+					position: static;
+					transform: none;
+					margin-top: 2rem;
+					text-align: center;
+				}
+			}
+		</style>
+		<a id="top"></a>
+		<div
+			class="android flex justify-center animate-drop-from-top mt-6 rounded-lg gap-2 items-center"
+		>
+			<a
+				href="#where-to-buy"
+				class="bg-green-400 hover:bg-green-400/90 cursor-pointer hover:scale-105 transition-all duration-200 flex rounded-md px-1"
+			>
+				Где купить
+			</a>
+			<a
+				href="#assortment"
+				class="bg-green-400 hover:bg-green-400/90 cursor-pointer hover:scale-105 transition-all duration-200 flex rounded-md px-1"
+			>
+				Ассортимент
+			</a>
+			<a
+				href="#about-brand"
+				class="bg-green-400 hover:bg-green-400/90 cursor-pointer hover:scale-105 transition-all duration-200 flex rounded-md px-1"
+			>
+				О бренде
+			</a>
+			<div class="flex size-9 bg-gray-700/10 rounded-md items-center arrow">
+				<img
+					src="SolarSquareAltArrowRightBold.svg"
+					class="w-full px-0.5 py-1.5 rounded-md"
+					alt=""
+				/>
+			</div>
+			<div class="flex size-9 w-50 bg-gray-700 rounded-md items-center logo">
+				<img src="logo.svg" class="w-full px-0.5 py-1.5 rounded-md" alt="" />
+			</div>
+		</div>
+		<section class="hero">
+			<div class="copy-container">
+				<div
+					class="copy-container flex flex-col items-center justify-center gap-10"
+				>
+					<div
+						class="flex w-300 bg-[#1a1a1a] fade-in rounded-md justify-center items-center main"
+					>
+						<img
+							src="logo.svg"
+							class="w-full px-0.5 py-1.5 rounded-md"
+							alt=""
+						/>
+					</div>
+					<h1 class="mt-20">Твой проводник в мир качества</h1>
+				</div>
+			</div>
+		</section>
+		<section class="about anime-text-container" id="about-brand">
+			<div class="copy-container items-center">
+				<div class="mx-auto flex flex-col items-center justify-items-center">
+					<div class="text-green-400/90 text-5xl flex">О бренде</div>
+					<div class="text-green-400/90 text-6xl flex">МИР РЕГБИ</div>
+				</div>
+				<div class="anime-text">
+					<p>С 2001 года мы создаём инфраструктуру для регби в России.</p>
+					<p>
+						2 франшизы в Красноярске и Краснодаре — это не просто магазины, а
+						центры притяжения для спортсменов, где можно найти всё от мячей до
+						формы топ-брендов 💪
+					</p>
+				</div>
+			</div>
+		</section>
+		<section class="cta">
+			<div class="copy-container">
+				<h1>
+					<span class="text-[#fe6c37]">Присоединяйся</span> к качеству прямо
+					сейчас с <span class="text-[#fe6c37]">Миром</span> Регби
+				</h1>
+			</div>
+		</section>
+		<section class="features anime-text-container" id="where-to-buy">
+			<div class="copy-container">
+				<div class="text-green-400/90 text-6xl flex absolute top-30">
+					Где купить 🏉
+				</div>
+				<!-- Карты -->
+				<div
+					class="mx-auto mt-10 flex flex-wrap justify-center gap-4 p-4 maps-container anime-text"
+				>
+					<!-- Карта 1 -->
+					<div
+						class="h-124 rounded-lg overflow-hidden shadow-lg map-wrapper flex flex-col gap-8 items-center"
+					>
+						<p>Ул. командорская 5/1</p>
+						<iframe
+							src="https://yandex.ru/map-widget/v1/?ll=39.032033%2C45.091838&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1NjA2NjA5MhLQoNC-0YHRgdC40Y8sINCa0YDQsNGB0L3QsNGP0YDRiywg0JrQvtC80L7QvdC00LDRgNC-0LLQsCDRg9C70LjRhtCwLCA1LzEiCg2NqBZCFdOCX0I%3D&z=17&from=mapframe"
+							width="100%"
+							height="100%"
+							frameborder="0"
+							allowfullscreen
+							aria-label="Карта с Краснодаром"
+						>
+						</iframe>
+						<p>Мы в Краснодаре</p>
+					</div>
+
+					<!-- Карта 2 -->
+					<div
+						class="h-124 rounded-lg overflow-hidden shadow-lg map-wrapper flex flex-col gap-8 items-center"
+					>
+						<p>ул. Мирошниченко 6</p>
+						<iframe
+							src="https://yandex.ru/map-widget/v1/?ll=92.756128%2C56.029748&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg2MjAxMjQ5MhLQoNC-0YHRgdC40Y8sINCa0YDQsNGB0L3QsNGP0L_RgNC-0LHQvtGA0YHQuiwg0YPQu9C40YbQsCDQnNC40YDQvtGB0L3QuNC60L7QvdGH0LXRgNC-0LLQsCwgNiIKDfTlFkIV04JfQg%3D%3D&z=17&from=mapframe"
+							width="100%"
+							height="100%"
+							frameborder="0"
+							allowfullscreen
+							aria-label="Карта с Красноярском"
+						>
+						</iframe>
+						<p>Мы в Красноярске</p>
+					</div>
+				</div>
+				<a class="absolute bottom-20 cursor-pointer" href="#down"
+					><img
+						class="w-10 floating-icon mx-auto hover:translate-y-4 transition-all duration-200 cursor-pointer"
+						src="arrow-down.svg"
+						alt=""
+				/></a>
+			</div>
+		</section>
+		<section class="features">
+			<div class="copy-container" id="down">
+				<span
+					class="text-center absolute mx-auto my-auto text-6xl text-[#fe6c37] px-1.5 py-0.5 rounded-md z-1000"
+					>Наши онлайн <br />
+					магазины</span
+				>
+				<div
+					class="grid grid-cols-1 sm:grid-cols-2 mx-auto justify-items-center gap-6 md:gap-8 p-4 w-full"
+				>
+					<a href="https://www.wildberries.ru/seller/885475"
+						><div
+							class="w-full max-w-xs grid grid-cols-[auto_1fr] sm:grid-cols-[1fr_auto] hover:scale-[1.03] transition-all cursor-pointer rounded-2xl p-4 bg-gray-800/30 hover:bg-gray-700/50 border border-gray-600/30 gap-3 items-center h-36"
+						>
+							<span
+								class="text-green-400/90 text-center sm:text-right text-xl font-medium order-2 sm:order-1 truncate"
+							>
+								Wildberries
+							</span>
+							<div
+								class="rounded-lg w-40 h-28 flex items-center justify-center bg-gray-700/50 overflow-hidden order-1 sm:order-2"
+							>
+								<img
+									class="object-contain w-full h-full p-2"
+									src="вайлд.png"
+									alt="Wildberries"
+								/>
+							</div></div
+					></a>
+					<a
+						href="https://www.ozon.ru/seller/mir-regbi-279124/products/?miniapp=seller_279124"
+						><div
+							class="w-full max-w-xs grid grid-cols-[auto_1fr] sm:grid-cols-[1fr_auto] hover:scale-[1.03] transition-all cursor-pointer rounded-2xl p-4 bg-gray-800/30 hover:bg-gray-700/50 border border-gray-600/30 gap-3 items-center h-36"
+						>
+							<span
+								class="text-green-400/90 text-center sm:text-left text-xl font-medium order-2 truncate"
+							>
+								Ozon
+							</span>
+							<div
+								class="rounded-lg w-40 h-28 flex items-center justify-center bg-gray-700/50 overflow-hidden order-1"
+							>
+								<img
+									class="object-contain w-full h-full p-2"
+									src="озон.png"
+									alt="Ozon"
+								/>
+							</div></div
+					></a>
+
+					<a
+						href="https://www.avito.ru/brands/i14892852/all?page_from=from_item_card&iid=3985987729&sellerId=e316f867a3f57117226358f944dd8b2b"
+						><div
+							class="w-full max-w-xs grid grid-cols-[auto_1fr] sm:grid-cols-[1fr_auto] hover:scale-[1.03] transition-all cursor-pointer rounded-2xl p-4 bg-gray-800/30 hover:bg-gray-700/50 border border-gray-600/30 gap-3 items-center h-36"
+						>
+							<span
+								class="text-green-400/90 text-center sm:text-right text-xl font-medium order-2 sm:order-1 truncate"
+							>
+								Avito
+							</span>
+							<div
+								class="rounded-lg w-40 h-28 flex items-center justify-center bg-gray-700/50 overflow-hidden order-1 sm:order-2"
+							>
+								<img
+									class="object-contain w-full h-full p-2"
+									src="авито.jpg"
+									alt="Avito"
+								/>
+							</div></div
+					></a>
+
+					<a href="https://market.yandex.ru/cc/6wpi6F"
+						><div
+							class="w-full max-w-xs grid grid-cols-[auto_1fr] sm:grid-cols-[1fr_auto] hover:scale-[1.03] transition-all cursor-pointer rounded-2xl p-4 bg-gray-800/30 hover:bg-gray-700/50 border border-gray-600/30 gap-3 items-center h-36"
+						>
+							<span
+								class="text-green-400/90 text-center sm:text-left text-xl font-medium order-2 truncate"
+							>
+								Яндекс
+							</span>
+							<div
+								class="rounded-lg w-40 h-28 flex items-center justify-center bg-gray-700/50 overflow-hidden order-1"
+							>
+								<img
+									class="object-contain w-full h-full p-2"
+									src="яндекс.jpg"
+									alt="Яндекс"
+								/>
+							</div></div
+					></a>
+				</div>
+			</div>
+		</section>
+		<section class="outro">
+			<div class="copy-container">
+				<h1 class="top-10">
+					<span class="text-white">Создан</span> для
+					<span class="text-green-400">спортсменов</span>
+					<span class="text-[#fe6c37]">спортсменами</span>
+				</h1>
+			</div>
+		</section>
+		<section class="about" id="assortment">
+			<div class="copy-container items-center">
+				<div class="grid grid-cols-2 gap-10 px-10">
+					<div class="mx-auto flex items-center justify-items-center">
+						<div class="text-green-400/90 text-5xl flex">Ассортимент</div>
+					</div>
+
+					<div class="grid grid-cols-2 gap-4">
+						<a href="https://ozon.ru/t/Wfqd1nv"
+							><div
+								class="flex flex-col gap-2 hover:scale-105 transition-all duration-200 cursor-pointer rounded-md bg-gray-700/50 backdrop-blur-2xl px-1 py-0.5 w-2/3"
+							>
+								<div class="rounded-md flex w-full">
+									<img class="rounded-md w-full" src="проф.экип.jpg" alt="" />
+								</div>
+								<span class="text-green-400/90"
+									>Проффесиональная <br />
+									экипировка</span
+								>
+							</div></a
+						>
+						<a href="https://ozon.ru/t/L4ImUGB"
+							><div
+								class="flex flex-col gap-2 hover:scale-105 transition-all duration-200 cursor-pointer rounded-md bg-gray-700/50 backdrop-blur-2xl px-1 py-0.5 w-2/3"
+							>
+								<div class="rounded-md flex w-full">
+									<img class="rounded-md w-full" src="люб.экип.jpg" alt="" />
+								</div>
+								<span class="text-green-400/90"
+									>Любительская <br />
+									экипировка</span
+								>
+							</div></a
+						>
+
+						<a href="https://ozon.ru/t/ga90TfN"
+							><div
+								class="flex flex-col gap-2 hover:scale-105 transition-all duration-200 cursor-pointer rounded-md bg-gray-700/50 backdrop-blur-2xl px-1 py-0.5 w-2/3"
+							>
+								<div class="rounded-md flex w-full">
+									<img class="rounded-md w-full" src="сувениры.webp" alt="" />
+								</div>
+								<span class="text-green-400/90"
+									>Сувенирная <br />
+									продукция</span
+								>
+							</div></a
+						>
+						<a href="https://ozon.ru/t/sxkGXNe"
+							><div
+								class="flex flex-col gap-2 hover:scale-105 transition-all duration-200 cursor-pointer rounded-md bg-gray-700/50 backdrop-blur-2xl px-1 py-0.5 w-2/3"
+							>
+								<div class="rounded-md flex w-full">
+									<img
+										class="rounded-md w-auto"
+										src="спорт.инвент.jpg"
+										alt=""
+									/>
+								</div>
+								<span class="text-green-400/90"
+									>Спортивный <br />
+									инвентарь</span
+								>
+							</div></a
+						>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="hero">
+			<div class="copy-container">
+				<div
+					class="copy-container flex flex-col items-center justify-center gap-10"
+				>
+					<div
+						class="flex w-300 bg-[#1a1a1a] fade-in rounded-md justify-center items-center main"
+					>
+						<img
+							src="logo.svg"
+							class="w-full px-0.5 py-1.5 rounded-md"
+							alt=""
+						/>
+					</div>
+					<h1 class="mt-20">
+						Нам<span class="text-green-400/90">важно</span> твоё
+						<span class="text-green-400/90">мнение</span> и внимание в наших
+						<span class="text-white">социальных </span>сетях
+						<span class="text-[#7a78ff]">ВК</span>
+					</h1>
+				</div>
+			</div>
+		</section>
+
+		<section class="about">
+			<div class="copy-container items-center">
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+					<!-- Левая колонка (ВКонтакте) -->
+					<div
+						class="mx-auto flex flex-col gap-4 items-center justify-items-center"
+					>
+						<div class="text-green-400/90 text-4xl">Наша группа</div>
+						<div class="text-green-400/90 text-6xl">ВКонтакте</div>
+						<a href="https://vk.com/clubmirrugby?from=groups"
+							><img
+								class="w-40 rounded-xl hover:scale-115 transition-all hover:shadow-xl duration-400"
+								src="вк.jpg"
+								alt="Группа ВКонтакте"
+						/></a>
+					</div>
+
+					<!-- Правая колонка (Форма обратной связи) -->
+					<div class="bg-gray-800/30 p-8 rounded-2xl border border-gray-600/30">
+						<h3 class="text-green-400/90 text-3xl mb-6 text-center">
+							Обратная связь
+						</h3>
+
+						<form
+							action="https://formspree.io/f/mirregby-market@yandex.ru"
+							method="POST"
+							class="flex flex-col gap-4"
+						>
+							<div>
+								<label for="email" class="block text-green-400/70 mb-2"
+									>Ваш email</label
+								>
+								<input
+									type="email"
+									id="email"
+									name="email"
+									required
+									class="w-full px-4 py-2 bg-gray-700/50 border border-gray-600/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400/50 text-white"
+									placeholder="example@mail.com"
+								/>
+							</div>
+
+							<div>
+								<label for="message" class="block text-green-400/70 mb-2"
+									>Что можно улучшить?</label
+								>
+								<textarea
+									id="message"
+									name="message"
+									rows="4"
+									required
+									class="w-full px-4 py-2 bg-gray-700/50 border border-gray-600/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400/50 text-white"
+									placeholder="Ваши предложения..."
+								></textarea>
+							</div>
+
+							<button
+								type="submit"
+								class="mt-4 px-6 py-3 bg-green-400/90 hover:bg-green-400 text-gray-900 font-medium rounded-lg transition-colors duration-200"
+							>
+								Отправить
+							</button>
+
+							<p class="text-gray-400 text-sm mt-4 text-center">
+								Спасибо за ваше мнение! Мы обязательно его рассмотрим.
+							</p>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div
+				class="text-green-400 absolute bottom-16 left-1/2 transform -translate-x-1/2 text-sm text-center w-full cursor-pointer"
+			>
+				Политика конфиденциальности
+			</div>
+		</section>
+		<a
+			href="#top"
+			class="fixed floating-icon bottom-20 right-20 z-50 w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 cursor-pointer"
+		>
+			<img src="arrow-up.svg" alt="Наверх" class="w-12 h-12" />
+		</a>
+		<script type="module" src="/script.js"></script>
+	</body>
+</html>

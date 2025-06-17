@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&display=swap');
+
+html {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+body {
+	font-family: 'Geologica', sans-serif;
+	background-color: #1a1a1a;
+	overflow-x: hidden;
+}
+
+section {
+	position: relative;
+	width: 100vw;
+	height: 100svh;
+	padding: 2em;
+	overflow: hidden;
+}
+.copy-container {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	border-radius: 2rem;
+}
+
+.copy-container h1 {
+	width: 70%;
+	color: #141414;
+	font-size: 5rem;
+	font-weight: 900;
+	line-height: 1;
+}
+
+.hero .copy-container {
+	background: #fe6d38;
+}
+.cta .copy-container {
+	background: #c6fe69;
+}
+.outro .copy-container {
+	background: #7a78ff;
+}
+.about .copy-container,
+.features .copy-container {
+	border: 0.15rem dashed rgb(60, 60, 60);
+}
+.anime-text {
+	width: 60%;
+}
+
+.anime-text p {
+	color: #fff;
+	text-align: center;
+	font-size: 2rem;
+	margin-bottom: 2rem;
+	font-weight: 900;
+	line-height: 1;
+}
+
+.anime-text .word {
+	display: inline-block;
+	position: relative;
+	margin-right: 0.2rem;
+	margin-bottom: 0.2rem;
+	padding: 0.1rem 0.2rem;
+	border-radius: 2rem;
+	will-change: background-color, opacity;
+}
+
+.anime-text .word.keyword-wrapper {
+	margin: 0 0.4rem 0.2rem 0.2rem;
+}
+
+.anime-text .word span {
+	position: relative;
+}
+
+.anime-text .word span.keyword {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	border-radius: 2rem;
+	padding: 0.1rem 0;
+	color: #141414;
+}
+
+.anime-text .word span.keyword::before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: calc(100% + 1rem);
+	height: calc(100% + 0.4rem);
+	background-color: #fff;
+	border-radius: 2rem;
+	z-index: -1;
+}
+.anime-text .word span.keyword.топ-брендов::before,
+.anime-text .word span.keyword.shape::before,
+.anime-text .word span.keyword.interactive::before {
+	background-color: #7a78ff;
+}
+
+.anime-text .word span.keyword.мир::before,
+.anime-text .word span.keyword.красноярске::before,
+.anime-text .word span.keyword.краснодаре::before {
+	background-color: #fe6d38;
+}
+
+.anime-text .word span.keyword.clarity::before,
+.anime-text .word span.keyword.создаём::before,
+.anime-text .word span.keyword.регби::before {
+	background-color: #c6fe69;
+}
+
+.anime-text .word,
+.anime-text .word span {
+	opacity: 0;
+}
+
+@media (max-width: 1000px) {
+	section[id] {
+		scroll-margin-top: 80px;
+	}
+	.copy-container h1 {
+		width: 90%;
+		font-size: 2rem;
+	}
+	.android {
+		font-size: 0.7rem;
+		column-gap: 0.8rem;
+		gap: 0.5rem;
+	}
+	.arrow {
+		display: none;
+	}
+	.logo {
+		width: 4rem;
+		height: 1.7rem;
+	}
+	.main {
+		width: 15rem;
+	}
+	.anime-text {
+		width: 90%;
+	}
+
+	.anime-text p {
+		font-size: 1.25rem;
+	}
+
+	.anime-text .word {
+		margin-right: 0.1rem;
+		margin-bottom: 0.15rem;
+		padding: 0.1rem 0.2rem;
+	}
+
+	.anime-text .word.keyword-wrapper {
+		margin: 0 0.2rem 0.1rem;
+	}
+}
+@media (max-width: 999px) {
+	.maps-container {
+		flex-direction: column;
+	}
+	.map-wrapper {
+		width: 100% !important;
+	}
+}
+@media (min-width: 1000px) {
+	.map-wrapper {
+		width: 48% !important;
+	}
+}
